@@ -24,18 +24,15 @@
 # Sample Output:
 # 9
 
-def derangement(n):
+def countDer(n):
+    # Base cases
     if n == 1:
         return 0
+    if n == 0:
+        return 1
     if n == 2:
         return 1
-    der = [0] * (n + 1)
-    der[1] = 0
-    der[2] = 1
-    for i in range(3, n + 1):
-        der[i] = (i - 1) * (der[i - 1] + der[i - 2])
-    
-    return der[n]
-
+    # Recursive case
+    return ((n - 1) * (countDer(n - 1) + countDer(n - 2)))
 n = int(input())
-print(derangement(n))
+print(countDer(n))
