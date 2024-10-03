@@ -44,20 +44,16 @@ def main():
             else:
                 balanced = False
                 break
-
         elif s[i] == '*':
             if i + 1 < len(s) and s[i + 1] == '*':
                 if stack and stack[-1] in ['(', '{', '[']:
                     count += 1
                 i += 1  
-
         i += 1
-
     if balanced and not stack:
         print("Yes",end=" ")
         print(count)
     else:
         print(f"No {count}")
-
 if __name__ == "__main__":
     main()
